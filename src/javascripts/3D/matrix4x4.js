@@ -162,7 +162,6 @@ Matrix4x4.prototype = {
 
     return this;
   },
-
   multiply: function (right) {
     let tmp = new Matrix4x4();
 
