@@ -1,0 +1,145 @@
+@font-face {
+	font-family: "icons";
+	src: url('../bin/fonts/icons/icons.eot');
+	src: url('../bin/fonts/icons/icons.eot?#iefix') format('eot'),
+		url('../bin/fonts/icons/icons.woff') format('woff'),
+		url('../bin/fonts/icons/icons.ttf') format('truetype'),
+		url('../bin/fonts/icons/icons.svg#icons') format('svg');
+}
+
+@mixin icon-styles {
+	font-family: "icons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+
+	@if $filename == 808 {
+		$char: "\E001";
+	}
+	@if $filename == bird {
+		$char: "\E002";
+	}
+	@if $filename == computer {
+		$char: "\E003";
+	}
+	@if $filename == down-arrow {
+		$char: "\E004";
+	}
+	@if $filename == draw {
+		$char: "\E005";
+	}
+	@if $filename == flute {
+		$char: "\E006";
+	}
+	@if $filename == guy {
+		$char: "\E007";
+	}
+	@if $filename == harp {
+		$char: "\E008";
+	}
+	@if $filename == mic {
+		$char: "\E009";
+	}
+	@if $filename == piano-01-reverse-01 {
+		$char: "\E00A";
+	}
+	@if $filename == piano-01 {
+		$char: "\E00B";
+	}
+	@if $filename == play-arrow {
+		$char: "\E00C";
+	}
+	@if $filename == rotate-arrows {
+		$char: "\E00D";
+	}
+	@if $filename == trombone {
+		$char: "\E00E";
+	}
+	@if $filename == up-arrow {
+		$char: "\E00F";
+	}
+	@if $filename == wave {
+		$char: "\E010";
+	}
+	@if $filename == wine {
+		$char: "\E011";
+	}
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+		content: icon-char($filename);
+	}
+}
+
+.icon-808 {
+	@include icon(808);
+}
+.icon-bird {
+	@include icon(bird);
+}
+.icon-computer {
+	@include icon(computer);
+}
+.icon-down-arrow {
+	@include icon(down-arrow);
+}
+.icon-draw {
+	@include icon(draw);
+}
+.icon-flute {
+	@include icon(flute);
+}
+.icon-guy {
+	@include icon(guy);
+}
+.icon-harp {
+	@include icon(harp);
+}
+.icon-mic {
+	@include icon(mic);
+}
+.icon-piano-01-reverse-01 {
+	@include icon(piano-01-reverse-01);
+}
+.icon-piano-01 {
+	@include icon(piano-01);
+}
+.icon-play-arrow {
+	@include icon(play-arrow);
+}
+.icon-rotate-arrows {
+	@include icon(rotate-arrows);
+}
+.icon-trombone {
+	@include icon(trombone);
+}
+.icon-up-arrow {
+	@include icon(up-arrow);
+}
+.icon-wave {
+	@include icon(wave);
+}
+.icon-wine {
+	@include icon(wine);
+}
